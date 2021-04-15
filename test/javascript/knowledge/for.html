@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for...in&for...of</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const sa = Symbol(1);
+
+  console.log('=======数组=======');
+  const arr = [1, 2, 3, sa];
+  arr.name = 'array';
+  console.log('------for_in------');
+  for (const key in arr) {
+    console.log(`arr.${key}:`, arr[key]);
+  }
+  console.log('------for_of------');
+  for (const item of arr) {
+    console.log(item);
+  }
+
+  console.log('=======纯对象=======');
+  const triangle = { a: 1, b: 2, c: 3, [sa]: 4 };
+
+  console.log('------for_in------');
+  for (const key in triangle) {
+    console.log(`triangle.${key}:`, triangle[key]);
+  }
+  console.log('------for_of------');
+  // for (const item of triangle) {
+  //   console.log(item);
+  // }
+  // Uncaught TypeError: triangle is not iterable
+
+  console.log('=======原型链=======');
+  function ColoredTriangle() {
+    this.color = 'red';
+  }
+  ColoredTriangle.prototype = triangle;
+
+  const obj = new ColoredTriangle();
+
+  console.log('obj:', obj);
+
+  console.log('------for_in------');
+  for (const prop in obj) {
+    console.log(`obj.${prop}`, obj[prop]);
+  }
+  console.log('------for_of------');
+  // for (const item of obj) {
+  //   console.log(item);
+  // }
+  // Uncaught TypeError: obj is not iterable
+
+  
+  console.log('======避免原型链=======');
+  for (const prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      console.log(`obj.${prop}`, obj[prop]);
+    }
+  }
+</script>
+</html>

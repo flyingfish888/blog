@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深拷贝&浅拷贝</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const deepClone = obj => {
+    const targetObj = Array.isArray(obj) ? [] : {};
+    if (obj && typeof obj === 'object') {
+      const judgeFn = data => Object.prototype.toString.call(data);
+      // 普通对象和数组
+      if (judgeFn(obj) === '[object Object]' || judgeFn(obj) === '[object Array]') {
+        // 普通对象和数组
+        for (const key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            if (obj[key] && typeof obj[key] === 'object') {
+              targetObj[key] = deepClone(obj[key]);
+            } else {
+              targetObj[key] = obj[key];
+            }
+          }
+        }
+      } else {
+        return obj;
+      }
+    } else {
+      return obj;
+    }
+    return targetObj
+  }
+  // 函数复制
+  const fn1 = () => 1;
+  let fn2 = fn1;
+  fn2 = () => 2;
+  console.log('fn1::', fn1); // fn1:: () => 1
+  console.log('fn2::', fn2); // fn2:: () => 2
+  // 日期复制
+  const d1 = new Date('2020/01/01');
+  let d2 = d1;
+  d2 = new Date('2000/09/09');
+  console.log('d1::', d1); // d1:: Wed Jan 01 2020 00:00:00 GMT+0800 (中国标准时间)
+  console.log('d2::', d2); // d2:: Sat Sep 09 2000 00:00:00 GMT+0800 (中国标准时间)
+
+  const symbol1= Symbol(1);
+  let obj ={
+    number: 1,
+    string: '1',
+    [symbol1]: Symbol(2),
+    boolean: true,
+    undefined: undefined,
+    null: null,
+    arr: [1, 2, { o: 3 }],
+    obj: { a: 1, b: 2},
+    fn: () => {},
+    date: new Date()
+  }
+
+  let copyObj = deepClone(obj);
+
+  console.log('=======原对象1=======');
+  console.log(obj);
+  console.log('=======复制对象1=======');
+  console.log(copyObj);
+
+  debugger
+  copyObj.number=2;
+  copyObj.string='2';
+  copyObj.boolean=false;
+  copyObj.undefined='undefined';
+  copyObj.null='null';
+  copyObj.arr.push(4);
+  copyObj.arr[2].o = 'la';
+  copyObj.obj.c = 3;
+  copyObj.fn = () => 1;
+  copyObj.date = new Date('2000-01-01');
+  console.log('=======原对象2=======');
+  console.log(obj);
+  console.log('=======复制对象2=======');
+  console.log(copyObj);
+</script>
+</html>

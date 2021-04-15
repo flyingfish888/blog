@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>函数平铺</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const compose = function(...args) {
+    return function(x) {
+      return args.reduceRight((total, current) => {
+        console.log(total, current);
+        return current(total);
+      }, x);
+    }
+  }
+
+  let add = x => x+10;
+  let multiply = y => y*10;
+  console.log(multiply(add(10)));
+
+  let calculate = compose(multiply, add);
+  console.log(calculate, calculate(10));
+</script>
+</html>

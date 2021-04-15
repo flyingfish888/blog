@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>柯里化</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // add(1)(2)(3)(4) = 10;
+  function originFn (...arg) {
+    let sum = 0;
+    arg.forEach(item => sum += item);
+    return sum;
+  }
+  function addFn(n1) {
+    return function(n2) {
+      return function(n3) {
+        return function(n4) {
+          return n1+n2+n3+n4;
+        }
+      }
+    }
+  }
+  console.log(addFn(1)(2)(3)(4));
+  
+  function carry(fn) {
+    let allArg = [];
+    return function next(...arg) {
+      console.log(arg);
+      if (arg.length > 0) {
+        allArg = allArg.concat(arg);
+        return next;
+      }
+      const res = fn.apply(null, allArg);
+      allArg = [];
+      return res;
+    }
+    next.toString = function() {
+      console.log('toString');
+      return fn.apply(null, allArg);
+    }
+    next.valueOf = function() {
+      console.log('valueOf');
+      return fn.apply(null, allArg);
+    }
+  }
+  const res = carry(originFn);
+  console.log(res(1)(2)(3,1)(4)(5)());
+  console.log(res(1)(2)(3,1)(4)(5)());
+</script>
+</html>

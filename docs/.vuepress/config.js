@@ -3,18 +3,34 @@ module.exports = {
   description: '学习笔记',
   port: 6688,
   themeConfig: {
-    nav: [
-      { text: '知识原理', link: '/knowledge/' },
-      { text: '算法实现', link: '/algorithm/'}
-    ],
     sidebar: {
-      '/knowledge/': [
+      '/javascript/': [
         {
-          title: '异步事件',
+          title: 'JavaScript',
+          collapsable: false,
           sidebarDepth: 1,
           children: [
-            'async_events/promise.md',
-            'async_events/setTimeout.md'
+            {
+              title: '函数',
+              collapsable: false,
+              sidebarDepth: 1,
+              children: [
+                // ['function/concept', '1. 常见函数'],
+                // ['function/tile', '2. 函数平铺']
+                // ['function/memorize', '3. 缓存函数'],
+                // ['function/carry', '4. 函数柯里化'],
+                // ['function/debounce', '5. 函数防抖']
+                // ['function/throttle', '6. 函数节流'],
+                // ['function/copy/', '7. 深拷贝&浅拷贝']
+                'function/concept',
+                'function/tile',
+                'function/memorize',
+                'function/carry',
+                'function/debounce',
+                'function/throttle',
+                'function/copy/'
+              ]
+            }
           ]
         }
       ]
