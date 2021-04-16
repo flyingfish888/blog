@@ -1,45 +1,14 @@
-# 知识点
-一些零散知识点，随手记录
+# `for...in`和`for...of`比较
 
-## 1. 数据类型判断
-
-```js
-
-  Object.prototype.toString.call(1); // "[object Number]"
-  Object.prototype.toString.call('1'); // "[object String]"
-  Object.prototype.toString.call(Symbol(1)); // "[object Symbol]"
-  Object.prototype.toString.call(true); // "[object Boolean]"
-  Object.prototype.toString.call(null); // "[object Null]"
-  Object.prototype.toString.call(undefined); // "[object Undefined]"
-  Object.prototype.toString.call([]); // "[object Array]"
-  Object.prototype.toString.call({}); // "[object Object]"
-  Object.prototype.toString.call(() => {}); // "[object Function]"
-  Object.prototype.toString.call(new Date()); // "[object Date]"
-
-  typeof 1; // "number"
-  typeof '1'; // "string"
-  typeof Symbol(1); // "symbol"
-  typeof true; // "boolean"
-  typeof undefined; // "undefined"
-  typeof null; // "object"
-  typeof []; // "object"
-  typeof {}; // "object"
-  typeof new Date(); // "object"
-  typeof (() => {}); // "function"
-
-```
-
-## 2. `for...in`和`for...of`比较
-
-### for...in
+## for...in
 `for...in`语句以任意顺序遍历一个对象的除Symbol以外的可枚举属性
   
-##### 可枚举属性
+#### 可枚举属性
 - 可枚举属性指那些内部“可枚举”标志设置为true的属性
 - 对于通过直接的赋值和属性初始化的属性，该标识默认即为true
 - 对于通过Object.defineProperty等定义的属性，该标识默认为false
   
-#### 语法
+### 语法
 
 ```js
 
@@ -52,12 +21,12 @@
 - `variable`: 在每次迭代中，variable会被赋值为不同的属性名
 - `object`: 非Symbol类型的可枚举属性被迭代的对象。
 
-### for...of
+## for...of
 在可迭代对象上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性的值执行语句
 
 - 可迭代对象：`Array, Map, Set, String, argument`等等
 
-#### 语法
+### 语法
 
 ```js
 
@@ -70,9 +39,9 @@
 - `variable`: 在每次迭代中，将不同属性的值分配给变量
 - `iterable`: 被迭代枚举其属性的对象
 
-#### 示例
+### 示例
 
-##### Array
+#### Array
 ```js
 
   let iterable = [10, 20, 30];
@@ -87,7 +56,7 @@
 
 ```
 
-##### String
+#### String
 
 ```js
 
@@ -102,7 +71,7 @@
 
 ```
 
-##### Map
+#### Map
 
 ```js
 
@@ -124,7 +93,7 @@
 
 ```
 
-##### Set
+#### Set
 
 ```js
 
@@ -139,7 +108,7 @@
 
 ```
 
-##### arguments
+#### arguments
 
 ```js
 
@@ -155,7 +124,7 @@
 
 ```
 
-##### 迭代DOM集合
+#### 迭代DOM集合
 
 ```js
 
@@ -172,9 +141,9 @@
 - `for(variable in object)`中的variable是属性值
 :::
 
-### `for...of`对比`for...in`示例
+## `for...of`对比`for...in`示例
 
-#### 数组
+### 数组
 
 ```js
 
@@ -194,15 +163,15 @@
   }
 
 ```
-##### 输出
-![for-array](./imgs/for-in-array.png)
+#### 输出
+![for-array](./images/for-in-array.png)
 
 ::: tip 结论
 - for...in 可以输出数组的每项以及数组自身的属性
 - for...of 可以输出数组的每项，但不会输出数组自身的属性
 :::
 
-#### 对象
+### 对象
 
 ```js
 
@@ -221,16 +190,16 @@
 
 ```
 
-##### 结果
+#### 结果
 
-![for-in-obj](./imgs/for-in-object.png)
+![for-in-obj](./images/for-in-object.png)
 
 ::: tip 结论
 - for...in 可以遍历对象属性，不包括Symbol作为属性名的属性
 - for...of 不可以遍历对象，因为对象不是一个迭代器
 :::
 
-#### 原型链
+### 原型链
 
 ```js
 
@@ -264,9 +233,9 @@
 
 ```
 
-##### 结果
+#### 结果
 
-![for-in-new](./imgs/for-in-new.png)
+![for-in-new](./images/for-in-new.png)
 
 ::: tip 结论
 - for...in 会遍历对象原型上的可枚举属性
