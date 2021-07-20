@@ -35,7 +35,40 @@ module.exports = {
             }
           ]
         }
-      ]
+      ],
+      '/nodejs/': [
+        {
+          title: 'NodeJS',
+          collapsable: false,
+          sidebarDepth: 1,
+          children: [
+            {
+              title: 'Gulp',
+              collapsable: false,
+              sidebarDepth: 1,
+              children: [
+                ['gulp/', '基础知识'],
+              ]
+            },
+          ]
+        }
+      ],
+      '/browser/': [
+        {
+          title: '浏览器相关',
+          collapsable: false,
+          sidebarDepth: 1,
+          children: ['chrome/']
+        }
+      ],
+      '/computer/': [
+        {
+          title: '计算机原理',
+          collapsable: false,
+          sidebarDepth: 1,
+          children: ['cpu/']
+        }
+      ],
     }
   }
 }
