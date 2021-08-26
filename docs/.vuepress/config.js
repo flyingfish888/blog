@@ -2,6 +2,7 @@ module.exports = {
   title: '会飞的鱼🐟',
   description: '学习笔记',
   port: 6688,
+  base: '/blog/',
   themeConfig: {
     sidebar: {
       '/javascript/': [
@@ -69,6 +70,22 @@ module.exports = {
           children: ['cpu/']
         }
       ],
+      '/vue/': [
+        {
+          title: 'Vue知识原理',
+          collapsable: false,
+          sidebarDepth: 1,
+          children: ['bindData/']
+        }
+      ],
+      '/d3js/': [
+        {
+          title: 'D3js',
+          collapsable: false,
+          sidebarDepth: 1,
+          children: ['introduction/']
+        }
+      ]
     }
   }
 }
