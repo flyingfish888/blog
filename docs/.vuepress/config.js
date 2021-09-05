@@ -2,7 +2,6 @@ module.exports = {
   title: '会飞的鱼🐟',
   description: '学习笔记',
   port: 6688,
-  base: '/blog/',
   themeConfig: {
     sidebar: {
       '/javascript/': [
