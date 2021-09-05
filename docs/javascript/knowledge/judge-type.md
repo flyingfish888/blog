@@ -1,5 +1,8 @@
 # 数据类型判断
 
+
+## Object.prototype
+
 ```js
 
   Object.prototype.toString.call(1); // "[object Number]"
@@ -13,8 +16,14 @@
   Object.prototype.toString.call(() => {}); // "[object Function]"
   Object.prototype.toString.call(new Date()); // "[object Date]"
 
+```
+
+## typeof
+
+```js
+
   typeof 1; // "number"
-  typeof '1'; // "string"
+  typeof '1'; // "string"s
   typeof Symbol(1); // "symbol"
   typeof true; // "boolean"
   typeof undefined; // "undefined"
