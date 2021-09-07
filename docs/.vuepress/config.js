@@ -36,6 +36,30 @@ module.exports = {
           ]
         }
       ],
+      '/vue/': [
+        {
+          title: 'Vue知识原理',
+          collapsable: false,
+          sidebarDepth: 1,
+          children: ['bindData/']
+        }
+      ],
+      '/micro-frontends/': [
+        {
+          title: '微前端',
+          collapsable: false,
+          sidebarDepth: 2,
+          children: ['knowledge/basic/', 'qiankun/']
+        }
+      ],
+      '/d3js/': [
+        {
+          title: 'D3js',
+          collapsable: false,
+          sidebarDepth: 1,
+          children: ['introduction/']
+        }
+      ],
       '/nodejs/': [
         {
           title: 'NodeJS',
@@ -67,22 +91,6 @@ module.exports = {
           collapsable: false,
           sidebarDepth: 1,
           children: ['cpu/']
-        }
-      ],
-      '/vue/': [
-        {
-          title: 'Vue知识原理',
-          collapsable: false,
-          sidebarDepth: 1,
-          children: ['bindData/']
-        }
-      ],
-      '/d3js/': [
-        {
-          title: 'D3js',
-          collapsable: false,
-          sidebarDepth: 1,
-          children: ['introduction/']
         }
       ]
     }

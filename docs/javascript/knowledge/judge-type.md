@@ -1,6 +1,5 @@
 # 数据类型判断
 
-
 ## Object.prototype
 
 ```js
@@ -23,7 +22,7 @@
 ```js
 
   typeof 1; // "number"
-  typeof '1'; // "string"s
+  typeof '1'; // "string"
   typeof Symbol(1); // "symbol"
   typeof true; // "boolean"
   typeof undefined; // "undefined"
