@@ -8,29 +8,44 @@ module.exports = {
         {
           title: 'JavaScript',
           collapsable: false,
-          sidebarDepth: 1,
           children: [
             {
+              title: '内置对象',
+              collapsable: true,
+              sidebarDepth: 3,
+              children: [
+                'built-in-object/Object/',
+                'built-in-object/Array/',
+                'built-in-object/Function/',
+                'built-in-object/String/',
+                'built-in-object/Boolean/',
+                'built-in-object/Number/',
+                'built-in-object/Date/',
+                'built-in-object/Math/',
+                'built-in-object/RegExp/',
+              ]
+            },
+            {
               title: '知识点',
-              collapsable: false,
+              collapsable: true,
               sidebarDepth: 1,
               children: [
-                ['knowledge/judge-type', '1. 判断数据类型'],
-                ['knowledge/for-in-of', '2. for...in和for...of比较'],
+                'knowledge/judge-type',
+                'knowledge/for-in-of',
               ]
             },
             {
               title: '函数',
-              collapsable: false,
+              collapsable: true,
               sidebarDepth: 1,
               children: [
-                ['function/concept', '1. 常见函数'],
-                ['function/tile', '2. 函数平铺'],
-                ['function/memorize','3. 缓存函数'],
-                ['function/carry', '4. 柯里化'],
-                ['function/debounce', '5. 函数防抖'],
-                ['function/throttle', '6. 函数节流'],
-                ['function/copy/', '7. 浅拷贝&深拷贝']
+                'function/concept',
+                'function/tile',
+                'function/memorize',
+                'function/carry',
+                'function/debounce',
+                'function/throttle',
+                'function/copy/'
               ]
             }
           ]
@@ -60,9 +75,9 @@ module.exports = {
           children: ['introduction/']
         }
       ],
-      '/nodejs/': [
+      '/build-tools/': [
         {
-          title: 'NodeJS',
+          title: '构建工具',
           collapsable: false,
           sidebarDepth: 1,
           children: [
@@ -71,7 +86,7 @@ module.exports = {
               collapsable: false,
               sidebarDepth: 1,
               children: [
-                ['gulp/', '基础知识'],
+                'gulp/',
               ]
             },
           ]
