@@ -10,9 +10,19 @@ module.exports = {
           collapsable: false,
           children: [
             {
+              title: '知识点',
+              collapsable: true,
+              sidebarDepth: 1,
+              children: [
+                'knowledge/prototype-chain/',
+                'knowledge/judge-type',
+                'knowledge/for-in-of',
+              ]
+            },
+            {
               title: '内置对象',
               collapsable: true,
-              sidebarDepth: 3,
+              sidebarDepth: 2,
               children: [
                 'built-in-object/Object/',
                 'built-in-object/Array/',
@@ -26,13 +36,16 @@ module.exports = {
               ]
             },
             {
-              title: '知识点',
+              title: '表达式',
               collapsable: true,
-              sidebarDepth: 1,
-              children: [
-                'knowledge/judge-type',
-                'knowledge/for-in-of',
-              ]
+              sidebarDepth: 2,
+              children: []
+            },
+            {
+              title: '运算符',
+              collapsable: true,
+              sidebarDepth: 2,
+              children: []
             },
             {
               title: '函数',

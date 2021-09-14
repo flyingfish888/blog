@@ -8,14 +8,11 @@
 </head>
 <body>
   <script>
-  const toString = Object.prototype.toString;
-  function fn(){
-		this.name = 'fn';
-	}
-
-	let obj_fn = new fn();
-	console.log(obj_fn.toString()); // [object Undefined]
-	console.log(toString.call(obj_fn)); // [object Null]
+  let res = Array.prototype.map.call('Hello World',function(x){
+		console.log(x);
+		return x.charCodeAt(0);//返回字符对应的ASCII码
+	});
+	console.log(res);
   </script>
 </body>
 </html>
