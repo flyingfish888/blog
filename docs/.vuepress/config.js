@@ -14,9 +14,12 @@ module.exports = {
               collapsable: true,
               sidebarDepth: 1,
               children: [
+                'knowledge/class/',
                 'knowledge/prototype-chain/',
                 'knowledge/judge-type',
                 'knowledge/for-in-of',
+                'knowledge/memory-management/',
+                'knowledge/lexical-scope/'
               ]
             },
             {
@@ -58,7 +61,11 @@ module.exports = {
                 'function/carry',
                 'function/debounce',
                 'function/throttle',
-                'function/copy/'
+                'function/copy/',
+                'function/arr-and-tree',
+                'function/search-in-array',
+                'function/apply-call-bind',
+                'function/new'
               ]
             }
           ]
@@ -69,7 +76,26 @@ module.exports = {
           title: 'Vue知识原理',
           collapsable: false,
           sidebarDepth: 1,
-          children: ['bindData/']
+          children: [
+            'responsive/',
+            'optimize-performance/'
+          ]
+        }
+      ],
+      '/browser/': [
+        {
+          title: '浏览器',
+          collapsable: false,
+          sidebarDepth: 1,
+          children: [
+            'url/',
+            'repaint/',
+            'safe/',
+            'cache/',
+            'local-store/',
+            'homology/',
+            'chrome/'
+          ]
         }
       ],
       '/micro-frontends/': [
@@ -101,24 +127,37 @@ module.exports = {
               children: [
                 'gulp/',
               ]
-            },
+            }, {
+              title: 'Webpack',
+              collapsable: false,
+              sidebarDepth: 1,
+              children: [
+                'webpack/config/',
+                'webpack/start/'
+              ]
+            }
           ]
-        }
-      ],
-      '/browser/': [
-        {
-          title: '浏览器相关',
-          collapsable: false,
-          sidebarDepth: 1,
-          children: ['chrome/']
         }
       ],
       '/computer/': [
         {
-          title: '计算机原理',
+          title: '计算机基础',
+          collapsable: false,
+          sidebarDepth: 2,
+          children: [
+            'cpu/',
+            'tcp/'
+          ]
+        }
+      ],
+      '/project-practice/': [
+        {
+          title: '项目实践',
           collapsable: false,
           sidebarDepth: 1,
-          children: ['cpu/']
+          children: [
+            'h5-static/'
+          ]
         }
       ]
     }

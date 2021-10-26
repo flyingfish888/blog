@@ -9,7 +9,9 @@ Object构造函数为给定值创建一个对象包装器。如果给定值是nu
 
 ---
 
-## Object构造函数的属性
+## 属性
+
+构造函数`Object`自身的属性
 
 - Object.length值为1
 
@@ -81,11 +83,11 @@ Object构造函数为给定值创建一个对象包装器。如果给定值是nu
 
 ```
 
-## Object构造函数的方法
+## 方法
 
 这些方法不会被实例继承，只能通过`Object.fn`（fn表示方法名）来调用，即自身属性方法。
 
-### 1、Object.create
+### 1、create
 
 创建一个新对象，使用现有的对象来提供新创建的对象的`__proto__`。
 
@@ -213,7 +215,7 @@ Object构造函数为给定值创建一个对象包装器。如果给定值是nu
 
 结果：使用`Object.create`实现链式继承，子类重写proto不会影响父类的proto，因为是新创建的一个对象
 
-### 2、Object.assign
+### 2、assign
 
 用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。
 
@@ -352,7 +354,7 @@ Object构造函数为给定值创建一个对象包装器。如果给定值是nu
 	console.log(copy);// { foo:1, get bar() { return 2 } }
 ```
 
-### 3、Object.is
+### 3、is
 
 判断两个值是否相同。
 
@@ -1163,7 +1165,9 @@ Object.setPrototypeOf()是ECMAScript 6最新草案中的方法，相对于`Objec
 
 ```
 
-## Object原型对象的属性
+## 原型属性
+
+构造函数`Object`自身的额属性
 
 JavaScript中的所有对象都来自`Object`；所有对象从`Object.prototype`继承方法和属性，尽管它们可能被覆盖。
 
@@ -1268,7 +1272,7 @@ JavaScript中的所有对象都来自`Object`；所有对象从`Object.prototype
 - 对于使用 new fun 创建的对象，其中fun是由js提供的内建构造器函数之一(Array, Boolean, Date, Number, Object, String 等等），这个值总是fun.prototype。
 - 对于用js定义的其他js构造器函数创建的对象，这个值就是该构造器函数的prototype属性。
 
-## Object原型对象的方法
+## 原型方法
 
 这些方法放在Object这个构造函数的prototype上，能够被对象实例所继承使用。
 

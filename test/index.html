@@ -8,15 +8,21 @@
 </head>
 <body>
   <script>
-    var a = 100;
-    function invoke() {
-      var a = 200;
-      function fn() {
-        alert(a); // 200
-      }
-      fn();
+    function duplicates(arr) {
+        const target = [];
+        const obj = {};
+        arr.forEach(item => {
+            if (!obj[item]) {
+                obj[item] = 1;
+            } else if (obj[item] === 1) {
+                target.push(item);
+                obj[item] += 1;
+            }
+        });
+        return target;
     }
-    invoke();
+    const arr = [1, 2, 4, 4, 3, 3, 1, 5, 3];
+    console.log(duplicates(arr));
   </script>
 </body>
 </html>

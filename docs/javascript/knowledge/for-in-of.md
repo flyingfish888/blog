@@ -138,7 +138,7 @@
 
 ::: warning 注意
 - `for(variable in object)`中的variable是属性名；
-- `for(variable in object)`中的variable是属性值
+- `for(variable of object)`中的variable是属性值
 :::
 
 ## `for...of`对比`for...in`示例

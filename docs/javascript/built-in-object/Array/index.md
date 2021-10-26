@@ -34,8 +34,9 @@
 
 ![length](./images/array-length.png)
 
-## Array的属性
+## 属性
 
+构造函数`Array`自身的属性
 ### 1、length
 
 length是Array的实例属性。返回或设置一个数组中的元素个数。该值是一个无符号32-bit整数（0到2^32-1），并且总是大于数组最高项的下标。
@@ -46,9 +47,9 @@ Array.protoType属性是Array的原型对象。
 
 Array实例继承自Array.prototype。与所有构造函数一样，我们可以更改构造函数的原型对象，以对所有Array实例进行更改。
 
-## Array的方法
+## 方法
 
-构造函数Array自身的属性方法，可以通过`Array.fn`直接访问。
+构造函数`Array`自身的属性方法，可以通过`Array.fn`直接访问。
 
 ### 1、from
 
@@ -142,7 +143,7 @@ Array.from()本身是浅拷贝，如果数组的某个元素是对象或数组�
 
 ```
 
-## Array原型对象的方法
+## 原型方法
 
 `Array.prototype`对象上的方法，假设一个方法是fn，则可以通过`Array.prototype.fn`直接访问，实例访问该方法直接`arr.fn`即可。
 
@@ -412,7 +413,7 @@ concat方法不会改变this或任何作为参数提供的数组，而是返回�
 
 ```
 
-#### 8.copyWithin()
+#### 8.copyWithin
 
 方法浅复制数组的一部分到同一数组中的另一个位置，并返回它，而不修改其大小。
 
@@ -501,7 +502,13 @@ fill方法故意设计为通用方法，该方法不要求this是数组对象
 
 ### 第二类：遍历数组
 
-#### 1.`forEach/map/filter/every/some/find/findIndex` 这七个方法有相似的语法：
+- forEach
+- map
+- filter
+- every
+- some
+- find
+- findIndex
 
 ```javascript
 	//fn表示“forEach/map/filter/every/some/find/findIndex”中的任意一个
@@ -529,7 +536,9 @@ fill方法故意设计为通用方法，该方法不要求this是数组对象
 - ③ `forEach/map/filter/every/some`在执行过程中，那些已删除或者未初始化的项将被跳过（例如在稀疏数组上），而`find/findIndex`在执行过程中会调用每个索引，而不仅仅是那些被赋值的索引，这意味着对于稀疏数组来说，这两个方法的效率要低。
 - ④ `forEach/map/filter/every/some`对于被删除的元素将不会被访问到，而`find/findIndex`仍旧会被访问到被删除的元素
 
-#### forEach：按升序为数组中含有有效值的每一项执行一次callback函数。
+#### forEach
+
+按升序为数组中含有有效值的每一项执行一次callback函数。
 
 forEach()，没有办法终止或者跳出循环，除非抛出一个异常（这种使用方法明显是错误的）。如果需要提前终止循环可以使用：简单循环、`for...of`、`every`、`some`、`find`、`findIndex`。
 
@@ -615,7 +624,9 @@ forEach()，没有办法终止或者跳出循环，除非抛出一个异常（�
 	// 上面的代码输出one/two/four。当到达包含two的项时，数组的第一个项被移除了，这导致所有剩下的项上移一个位置。因为元素four现在在数组更前的位置，three会被跳过。
 ```
 
-#### map：创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+#### map
+
+创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
 
 返回一个新数组，每个元素都是回调函数的结果。
 
@@ -643,7 +654,9 @@ forEach()，没有办法终止或者跳出循环，除非抛出一个异常（�
 
 ```
 
-#### filter：创建一个新数组，其包含通过所提供函数实现的测试的所有元素。
+#### filter
+
+创建一个新数组，其包含通过所提供函数实现的测试的所有元素。
 
 filter为数组中的每个元素调用一次callback函数，并利用所有使得callback返回true或等价于true的值的元素创建一个新数组。
 返回一个新的通过测试的元素的集合的数组，如果没有通过测试则返回空数组
@@ -667,7 +680,9 @@ filter为数组中的每个元素调用一次callback函数，并利用所有使
 
 ```
 
-#### every：测试数组的所有元素是否都通过了指定函数的测试。
+#### every
+
+测试数组的所有元素是否都通过了指定函数的测试。
 
 every方法为数组中的每个元素执行一次callback函数，直到它找到一个使callback返回false（表示可转换为布尔值false的值）的元素。如果发现了一个这样的元素，every方法将会立即返回false。否则，callback为每一个元素返回true，every就会返回true。
 
@@ -687,9 +702,11 @@ every和数学中的“所有”类似，当所有的元素都符合条件才返
 
 ```
 
-#### some：测试是否至少有一个元素通过提供的函数实现的测试。
+#### some
 
-some()为数组中的每一个元素执行一次callback函数，直到找到一个使得callback返回一个真值。如果找到了这样一个值，some()将会立即返回true。否则some()返回false。
+测试是否至少有一个元素通过提供的函数实现的测试。
+
+`some()`为数组中的每一个元素执行一次callback函数，直到找到一个使得callback返回一个真值。如果找到了这样一个值，some()将会立即返回true。否则some()返回false。
 
 **示例：**
 
@@ -776,7 +793,7 @@ some()为数组中的每一个元素执行一次callback函数，直到找到一
 
 ---
 
-#### 2. `reduce/reduceRight`方法与上面七个方法的语法类似，但有所不同，语法如下：
+#### 2. `reduce/reduceRight`
 
 ```javascript
 	// fn代替reduce/reduceRight

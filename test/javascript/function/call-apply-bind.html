@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    Function.prototype._apply = function(context, arg) {
+      const thisArg = context || window;
+      const params = arg ? arg : [];
+      const key = Symbol();
+      thisArg[key] = this;
+      const result = thisArg[key](...params);
+      delete thisArg[key];
+      return result;
+    }
+    Function.prototype._call = function(context, ...arg) {
+      const thisArg = context || window;
+      const params = arg ? arg : [];
+      const key = Symbol();
+      thisArg[key] = this;
+      const result = thisArg[key](...params);
+      delete thisArg[key];
+      return result;
+    }
+    Function.prototype._bind = function(context, ...arg) {
+      const fn = this;
+      const args = arg ? arg: [];
+      return function newFn(...params) {
+        // 使用new的时候，this指向实例，实例继承自该函数，用这个判断是new调用
+        if(this instanceof newFn) {
+          return new fn(...args, ...params);
+        };
+        const result = fn._apply(context, [...args, ...params]);
+        return result;
+      }
+    }
+  </script>
+</body>
+</html>
