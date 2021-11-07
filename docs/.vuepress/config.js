@@ -146,7 +146,8 @@ module.exports = {
           sidebarDepth: 2,
           children: [
             'cpu/',
-            'tcp/'
+            'tcp/',
+            'http/'
           ]
         }
       ],
