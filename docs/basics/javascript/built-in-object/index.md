@@ -1,0 +1,1 @@
+# JavaScript内置对象
